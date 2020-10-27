@@ -5,8 +5,7 @@ int main(void)
 	int n;
         int i,j,k;
 	int a[101];
-	scanf("%d",&n);
-	while(n != 0) {
+	while(~scanf("%d",&n) && n != 0) {
 		for(i=0;i<n;i++){
 		scanf("%d",&a[i]);
 		}
@@ -23,7 +22,7 @@ int main(void)
 			a[j] = tem;
 		}
 
-		for(i=0;i<n-1;i++){
+		for(i=0;i<n;i++){
 			if (i !=n)
 				printf("%d ",a[i]);
 			else

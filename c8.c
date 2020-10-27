@@ -1,18 +1,5 @@
 #include <stdio.h>
-int minmax(int a[],int n)
-{
-	int i;
-	int min=0;
-	int max=0;
-	for(i=0;i<n;i++) {
-		if(a[i]>a[i+1])
-			max = a[i];
-		else
-			min = a[i];
-	}
-	return min,max;
-}
-
+#include <math.h>
 int main(void)
 {
 	int n;
@@ -20,17 +7,21 @@ int main(void)
 	int i,j;
 	double sum=0;
 	int min,max;
-	double ave;
-	scanf("%d",&n);
-	while(n!=0) {
+	while(~scanf("%d",&n) && n != 0) {
 		for(i=0;i<n;i++) {
 			scanf("%d",&scr[i]);
 		}
-		minmax(scr,sizeof(scr[i])-1);
 		for(j=0;j<n;j++) {
-			if(min != scr[j]|| max != scr[j]) {
-				sum += scr[j];
+			if(scr[j]>scr[j+1]){
+				int temp;
+				temp=scr[j];
+				scr[j]=scr[j+1];
+				scr[j+1]=temp;	
 			}
+		for(i=1;i<n-1;i++) {
+			sum += scr[i];
+			}
+			
 		}
 		printf("%.2f",sum/(n-2));
 		sum=0;
